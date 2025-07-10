@@ -30,7 +30,7 @@ users = "0.11"
 tokio = { version = "1", features = ["full"], optional = true }
 
 [target.'cfg(target_os = "linux")'.dependencies]
-procfs = "0.16"
+procfs = "0.17"
 
 [target.'cfg(target_os = "windows")'.dependencies]
 winapi = { version = "0.3", features = ["processthreadsapi", "psapi", "handleapi", "winnt", "securitybaseapi", "winsvc"] }
