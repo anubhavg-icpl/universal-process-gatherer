@@ -37,7 +37,7 @@ winapi = { version = "0.3", features = ["processthreadsapi", "psapi", "handleapi
 
 [target.'cfg(target_os = "macos")'.dependencies]
 mach2 = "0.4"
-core-foundation = "0.9"
+core-foundation = "0.10"
 
 [target.'cfg(target_os = "aix")'.dependencies]
 # AIX-specific dependencies handled via libc
