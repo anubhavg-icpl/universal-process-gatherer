@@ -1,0 +1,27 @@
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.log
+output/
+exports/
+
+# Testing
+test-data/
+coverage/
+*.profdata
+*.profraw

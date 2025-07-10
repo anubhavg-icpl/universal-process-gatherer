@@ -1,0 +1,1 @@
+// Public API module - currently empty but reserved for future REST API implementation

@@ -1,0 +1,61 @@
+[package]
+name = "universal-process-gatherer"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A cross-platform library for gathering system process information with security analysis"
+repository = "https://github.com/anubhavg-icpl/universal-process-gatherer"
+license = "MIT OR Apache-2.0"
+keywords = ["process", "system", "monitoring", "cross-platform", "security"]
+categories = ["os", "system-programming"]
+
+[dependencies]
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4.0", features = ["derive"] }
+csv = "1.3"
+regex = "1.10"
+log = "0.4"
+env_logger = "0.11"
+libc = "0.2"
+byteorder = "1.5"
+memmap2 = "0.9"
+nix = { version = "0.29", features = ["process", "user"] }
+sha2 = "0.10"
+hex = "0.4"
+users = "0.11"
+tokio = { version = "1", features = ["full"], optional = true }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+procfs = "0.16"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi = { version = "0.3", features = ["processthreadsapi", "psapi", "handleapi", "winnt", "securitybaseapi", "winsvc"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+mach2 = "0.4"
+core-foundation = "0.9"
+
+[target.'cfg(target_os = "aix")'.dependencies]
+# AIX-specific dependencies handled via libc
+
+[dev-dependencies]
+criterion = "0.5"
+tempfile = "3.8"
+
+[features]
+default = ["cli"]
+cli = []
+async = ["tokio"]
+
+[[bench]]
+name = "process_collection"
+harness = false
+
+[[bin]]
+name = "upgatherer"
+path = "src/main.rs"
+required-features = ["cli"]
