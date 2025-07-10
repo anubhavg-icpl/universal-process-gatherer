@@ -2,7 +2,7 @@
 name = "universal-process-gatherer"
 version = "0.1.0"
 edition = "2021"
-authors = ["Your Name <your.email@example.com>"]
+authors = ["Anubhav Gain <anubhavg@infopercept.com>"]
 description = "A cross-platform library for gathering system process information with security analysis"
 repository = "https://github.com/anubhavg-icpl/universal-process-gatherer"
 license = "MIT OR Apache-2.0"
